@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function Queue(){
+      this.dataStore=[];
+      this.enqueue = enqueue; //向对尾增加一个元素
+      this.dequeue = dequeue;
+      this.front = front;
+      this.back = back;
+      this.toString = toString;
+      this.empty = empty;
+    }
+
+      //进队列
+    function  enqueue(el){
+       this.dataStore.push(el);
+    }
+
+    //出队列
+    function dequeue(){
+      return  this.dataStore.shift();
+    }
+
+    function front(){
+      return this.dataStore[0];
+    }
+
+     function  back(){
+      return this.dataStore[this.dataStore.length-1];
+    }
+
+    function toString(){
+       var reStr="";
+       for (var i = 0; i < this.dataStore.length; i++) {
+         reStr += this.dataStore[i]+"\n";
+       }
+       return reStr;
+    }
+
+    function empty(){
+      if (this.dataStore.length==0) {
+        return true;
+      }else {
+        return false;
+      }
+    }
+
+    var manQueue = new Queue();
+    manQueue.enqueue("aa");
+    manQueue.enqueue("bb");
+    manQueue.enqueue("cc");
+    console.log(manQueue.toString());
+
+    var womanQueue = new Queue();
+    womanQueue.enqueue("xx");
+    womanQueue.enqueue("yy");
+    womanQueue.enqueue("zz");
+    console.log(womanQueue.toString());
+
+    function getDancers(){
+      return manQueue.dequeue()+":"+womanQueue.dequeue();
+    }
+
+    console.log("第一对舞伴"+getDancers());
+
+
+  </script>
+</body>
+</html>

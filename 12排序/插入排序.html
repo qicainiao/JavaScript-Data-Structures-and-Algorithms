@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+   <script type="text/javascript">
+     function CArray(){
+       this.dataStore = [90,45,34,67,7,56,89,121];
+       this.swrap= swrap;
+       this.insertSort = insertSort;
+     }
+
+    function swrap(arr,index1,index2){
+      var temp = arr[index1];
+      arr[index1] = arr[index2];
+      arr[index2] = temp;
+    }
+
+    function insertSort(){
+      var temp,inner;
+      for (var outer = 1;  outer < this.dataStore.length; outer++){
+          temp = this.dataStore[outer];
+          inner = outer;
+          while (inner>0&&(this.dataStore[inner-1]>temp)) {
+            this.dataStore[inner]=this.dataStore[inner-1];
+            inner--;
+          }
+          this.dataStore[inner]= temp;
+          console.log("数据---》",this.dataStore);
+      }
+    }
+
+    let cArray= new CArray();
+    cArray.insertSort();
+    console.log(cArray.dataStore);
+   </script>
+</body>
+</html>

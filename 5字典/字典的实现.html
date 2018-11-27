@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+   <script type="text/javascript">
+      function Dictionary(){
+        this.dataStore = new Array();
+        this.add = add;
+        this.find=find;
+        this.count= count;
+        this.clear = clear;
+        this.remove = remove;
+        this.showAll= showAll;
+      }
+
+      function add(key,value){
+         this.dataStore[key]= value;
+      }
+
+      function find(key) {
+         return this.dataStore[key];
+      }
+
+      function remove(key){
+         delete this.dataStore[key]
+      }
+
+      function showAll(){
+        var dataKeys = Object.keys(this.dataStore);
+        for (var keys in dataKeys) {
+          console.log(dataKeys[keys]+"-->"+this.dataStore[dataKeys[keys]]);
+        }
+      }
+
+      function count(){
+        return Object.keys(this.dataStore).length;
+      }
+
+      function clear(){
+        var dataKeys = Object.keys(this.dataStore);
+        for (var keys in dataKeys) {
+          delete this.dataStore[dataKeys[keys]];
+        }
+      }
+
+      let pbook = new Dictionary();
+      pbook.add("anta",888);
+      pbook.add("Nike",455);
+      pbook.add("NB",666);
+      console.log("寻找Nike",pbook.find("Nike"));
+      console.log("showAll",pbook.showAll());
+   </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+   <script type="text/javascript">
+      function Node(ele){
+        this.ele = ele;
+        this.next=null;
+      }
+
+      function LList(){
+        this.head = new Node("head");
+        this.find= find;
+        this.insert = insert;
+        this.display = display;
+      }
+
+      function find(item){
+        var currNode = this.head;
+        while (currNode.ele!=item) {
+          currNode = currNode.next;
+        }
+        return currNode;
+      }
+
+      function insert(newEle,item){
+          var newNode = new Node(newEle);
+          var currNode = this.find(item);
+          newNode.next = currNode.next;
+          currNode.next=newNode;
+      }
+
+      function display(){
+        var currNode = this.head;
+        while (currNode.next!=null) {
+          console.log(currNode.next.ele);
+          currNode = currNode.next;
+        }
+      }
+
+      function findPrevious(item){
+         var currNode = this.head;
+         while (currNode.next!=null&&(currNode.next.ele!=item)) {
+           currNode=currNode.next;
+         }
+         return currNode;
+      }
+
+      function remove(item){
+        var preNode = this.findPrevious(item);
+        var currNode = this.find(item);
+        if (preNode.next!=null) {
+          preNode.next = currNode.next;
+          currNode.next=null;
+        }
+      }
+
+      var cities = new LList();
+      cities.insert("first","head");
+        cities.insert("second","first");
+          cities.insert("third","second");
+          console.log(cities.display());
+
+       console.log(cities.find("first"));
+
+   </script>
+</body>
+</html>

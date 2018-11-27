@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+   <script type="text/javascript">
+     function CArray(){
+       this.dataStore = [90,45,34,67,7,56,89,121];
+       this.swrap= swrap;
+       this.bubbleSort = bubbleSort;
+     }
+
+    function swrap(arr,index1,index2){
+      var temp = arr[index1];
+      arr[index1] = arr[index2];
+      arr[index2] = temp;
+    }
+
+    function  bubbleSort(){
+      for (var i = this.dataStore.length-1; i>1; i--) {
+        for (var j = 0; j < i; j++) {
+          if (this.dataStore[j]>this.dataStore[j+1]) {
+            swrap(this.dataStore,j,j+1);
+          }
+        }
+      }
+
+    }
+
+    let cArray= new CArray();
+    cArray.bubbleSort();
+    console.log(cArray.dataStore);
+   </script>
+</body>
+</html>
